@@ -8,8 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@bigcommerce/big-design": "^0.23.7",
     "next": "9.5.3",
+    "node-bigcommerce": "^4.1.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-components": "^5.2.0"
   }
 }
