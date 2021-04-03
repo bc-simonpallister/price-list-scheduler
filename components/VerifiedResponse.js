@@ -2,6 +2,7 @@ import {Panel, Text} from '@bigcommerce/big-design'
 import { useImperativeHandle } from 'react'
 
 const VerifiedResponse = (props) => {
+    console.log(props)
     const vr = props.props
     return (
         <Panel header='App Template' marginTop="xlarge">
