@@ -5,6 +5,7 @@ import VerifiedResponse from '../components/VerifiedResponse'
 // https://developer.bigcommerce.com/api-docs/apps/guide/callbacks#uninstall-callback
 
 const Uninstall = () => {
+    console.log('UNINSTALL')
     return (
         <div className="container">
             <H1>App Template</H1>

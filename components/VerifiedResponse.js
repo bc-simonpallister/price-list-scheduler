@@ -5,7 +5,7 @@ const VerifiedResponse = (props) => {
     console.log(props)
     const vr = props.props
     return (
-        <Panel header='App Template' marginTop="xlarge">
+        <Panel header='Price List Scheduler' marginTop="xlarge">
             <Text>Context : {vr.context}</Text>
             <Text>Store Hash : {vr.store_hash}</Text>
             <Text>User : {vr.user.id} {vr.user.email}</Text>

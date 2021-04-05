@@ -2,6 +2,7 @@ import BigCommerce from 'node-bigcommerce'
 
 const VerifyUser = async (query) => {
 
+    console.log('VerifyUser',query)
     if (!query.signed_payload){
         return {
             message: 'No parameters received'

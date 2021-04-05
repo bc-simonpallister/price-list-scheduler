@@ -1,2 +1,14 @@
 
-GET http://localhost:3000/api/hello
+POST  http://localhost:3000/api/stores
+Content-Type: application/json
+
+{
+    "access_token": "xxxxxxxxxxxxxxxxxxx",
+    "scope": "store_cart store_channel_listings <etc>",
+    "user": {
+        "id": 123123123,
+        "username": "user@example.com",
+        "email": "user@example.com"
+    },
+    "context": "stores/XXXXXXXXX"
+}

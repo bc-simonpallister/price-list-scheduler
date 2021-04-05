@@ -2,10 +2,14 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import BigCommerce from 'node-bigcommerce'
 import {H1, Button, InlineAlert, Panel, Table} from '@bigcommerce/big-design'
+import VerifiedResponse from '../components/VerifiedResponse'
 
 const Auth = (props) => {
+    console.log('AUTH')
+    console.log(props)
     return (
         <div className="container">
+            Some Text Here
             {props.auth.context ? (
             <>
                 <H1>App Template </H1>
@@ -38,6 +42,7 @@ const Auth = (props) => {
 }
 
 async function Authorize(context) {
+    console.log('authorize')
     const bigCommerce = new BigCommerce({
         logLevel: "info",
         clientId: process.env.CLIENT_ID,
@@ -62,21 +67,32 @@ async function Authorize(context) {
     
     if ( context.query.code){
         try {
-            await bigCommerce
-            .authorize(context.query)
-            .then(data => {
-                if (typeof data.access_token !== "undefined") {
-                    auth = data
-                } else {
-                    auth.message = "Authorization Failed"
-                }}
-            )
-            .catch(error => {
-                auth.message = error.message
-            })
+            const data = await bigCommerce.authorize(context.query)
+
+            console.log('returned data',data)
+
+            if (typeof data.access_token !== "undefined") {
+                auth = data
+
+                console.log('creating...',data)
+                const res = await fetch('https://pricelistscheduler.loca.lt/api/stores', {
+                    method: "POST",
+                    headers : {
+                        "Content-Type": "application/json",
+                        Accept: "appliction/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                auth.message = "Authorization Successful!"
+
+            } else {
+                auth.message = "Authorization Failed"
+            }        
         } catch (error ) {
+            console.log(error)
             auth.message = error.message
         }
+
     } else {
         auth.message = "No parameters received"
     }

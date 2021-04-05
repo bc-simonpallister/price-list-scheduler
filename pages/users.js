@@ -5,6 +5,7 @@ import VerifiedResponse from '../components/VerifiedResponse'
 // https://developer.bigcommerce.com/api-docs/apps/guide/callbacks#remove-user-callback
 
 const Users = () => {
+    console.log('USERS')
     return (
         <div className="container">
             <H1>App Template</H1>

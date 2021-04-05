@@ -5,9 +5,10 @@ import VerifiedResponse from '../components/VerifiedResponse'
 
 
 const Load = (props) => {    
+    console.log('LOAD')
     return (
         <div className="container">
-            <H1>App Template</H1>
+            <H1>Price List Scheduler</H1>
             {props.verified ? (
                 <H2>Success</H2>
             ) : (
